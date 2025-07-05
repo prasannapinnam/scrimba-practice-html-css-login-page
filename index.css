@@ -1,0 +1,164 @@
+*,body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+  --header-font: 'Bebas Neue', sans-serif;
+  --white-color: #FFFFFF;
+  --purple : #5200FF;
+  --page-font: 'Poppins',sans-serif;
+  --input-border: #C7C7C7;
+}
+
+
+/* must put relative on this block, so tat image will be relativly positioned to this container only*/
+.desc-wrapper {
+    background-color: var(--purple);
+    position: relative;
+    padding: 6.75rem 2.6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+
+/* must put absolute on this block, relative position on its parent*/
+.desc-wrapper::before {
+    content:'';
+    position: absolute;
+    background: url(assets/background.jpg);
+    background-size: cover;
+    top: 0;
+    left: 0;
+    opacity: 22%;
+    height: 100%;
+    width: 100%;
+
+}
+
+/* must put relative on this block, else we can see image from inside text */
+.description {
+    position: relative; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 5;
+
+}
+
+h3 {
+    font-family: var(--header-font);
+    font-weight: 400;
+    font-size: 4rem;
+    line-height: 1.2em;
+    color: var(--white-color);
+    margin-bottom: 5.125rem;
+}
+
+
+p {
+  font-family: var(--page-font);
+    font-weight: 500;
+    font-size: 1.5rem;
+    line-height: 1.5em;
+    color: var(--white-color);
+
+}
+
+.form-container {
+    padding: calc(5.125rem - 2.5rem) 2.5rem 6.56rem 2.5rem ;
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+}
+
+button {
+    background-color: var(--purple);
+    font-family: var(--page-font);
+    font-weight: 500;
+    font-size: 1.25rem;
+    line-height: 100%;
+    color: var(--white-color);
+    height: 3.9rem ;
+    border: none;
+    margin-top: 3.18rem;
+}
+
+.input-container {
+    margin-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+   border-color: var(--input-border) ;
+   background-color: #EDEDED ;
+   height: 4.06rem;
+}
+
+label {
+    font-family: var(--page-font);
+     font-weight: 500;
+    font-size: 1.25rem;
+    line-height: 100%; 
+    margin-bottom: 0.8rem;
+}
+
+
+@media  only screen and (min-width: 711px) and (max-width:893px) {
+    .input-container {
+        width : 18.9rem;
+    } 
+
+    .desc-wrapper{
+        min-height: 36rem;
+    }
+    
+    .form-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: calc(100% - 3.93rem -3.93rem);
+    }
+
+    button {
+        padding: 1.31rem 2.56rem;
+        margin-top: 4.06rem;
+    }
+}
+
+@media  only screen and (min-width: 894px)  {
+    .container {
+        display: flex;
+        height: 100vh;
+    }
+
+    .desc-wrapper {
+        width: 50%;
+        text-align: right;
+        padding-right: 6.43rem;
+    }
+
+    .form-container {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: left;
+        width: 50%;
+        padding-left: 6.43rem;
+        padding-right: 6.43rem;
+    }
+
+
+    button {
+        max-width: 12.4rem;
+        font-size: 1.125rem;
+    }
+
+    h3,p {
+        width: 26.4rem;
+    }
+}
